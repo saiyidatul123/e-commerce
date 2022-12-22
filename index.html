@@ -764,17 +764,16 @@
               var product_size = result[i].product_size;
               var product_price = result[i].product_price;
               var product_qty = result[i].product_qty;
+              var total = product_price*product_qty;
 
               if (result.length === 0) {
                 html_cart += `
 
-                <hr class="solid" />
-                <h5 class="text-center font-italic">No items added.</h5>
-                <hr class="solid" />
-
+                <h5 class="text-center font-italic py-4">No items added.</h5>
+              
                 <script>
                   $(function () {
-                  $("#checkout-btn").addClass("disabled");
+                  $("#checkout-btn").hide();
                   });
                 <\/script>
                 
@@ -807,7 +806,7 @@
                         </div>
                       </div>
                     </td>
-                    <td>RM${product_price}</td>
+                    <td>RM${total}</td>
                     <td>
                       <button class="del-btn" value=${cart_id}>
                         <i
