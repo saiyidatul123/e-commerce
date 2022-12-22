@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="nav-wrapper">
+    <button
+      class="mobile-nav-toggle"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+    >
+      <i
+        class="fa fa-bars icon-hamburger text-white"
+        aria-hidden="true"
+      ></i>
+      <i class="fa fa-times icon-close" aria-hidden="true"></i>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav class="primary-navigation" id="primary-navigation">
+      <ul aria-label="Primary" role="list" class="nav-list list-unstyled">
+        <li><a href="">Home</a></li>
+        <li><a href="">Men</a></li>
+        <li><a href="">Women</a></li>
+        <li><a href="">Kids</a></li>
+      </ul>
+    </nav>
+    <div class="btn-wrapper">
+      <div class="d-flex row justify-content-lg-between">
+        <div class="col">
+          <!-- search bar -->
+          <button class="search-btn">
+            <div class="search_bar_wrap">
+              <div class="search_bar">
+                <input
+                  type="text"
+                  class="search_bar_input"
+                  placeholder="Search"
+                  aria-label="search"
+                />
+              </div>
+              <div class="search_btn">
+                <span class="icon"
+                  ><ion-icon name="search-outline"></ion-icon
+                ></span>
+              </div>
+              <div class="close_btn">
+                <span class="icon"
+                  ><ion-icon name="close-outline"></ion-icon
+                ></span>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div class="col">
+          <button class="cart-btn">
+            <img
+              id="iconpacks"
+              src="./images/icons/shopping-bag.png"
+              data-bs-toggle="offcanvas"
+              href="#offcanvasExample"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- End of search bar -->
+  </div>
+</div>

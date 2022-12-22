@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kids</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/kids-style.css" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=DM+Sans:wght@500&family=Nabla&family=Supermercado+One&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/81b6eb02ea.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
+  <body>
+    <header class="primary-header" id="header-content">
+      <div class="container">
+        <div class="nav-wrapper">
+          <button
+            class="mobile-nav-toggle"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >
+            <i
+              class="fa fa-bars icon-hamburger text-white"
+              aria-hidden="true"
+            ></i>
+            <i class="fa fa-times icon-close" aria-hidden="true"></i>
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <nav class="primary-navigation" id="primary-navigation">
+            <ul aria-label="Primary" role="list" class="nav-list list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="men.html">Men</a></li>
+              <li><a href="women.html">Women</a></li>
+              <li><a href="kids.html">Kids</a></li>
+            </ul>
+          </nav>
+          <div class="btn-wrapper">
+            <div class="d-flex row justify-content-lg-between gap-2">
+              <div class="col">
+                <!-- search bar -->
+                <button class="search-btn">
+                  <div class="search_bar_wrap">
+                    <div class="search_bar">
+                      <input
+                        type="text"
+                        class="search_bar_input"
+                        placeholder="Search"
+                        aria-label="search"
+                      />
+                    </div>
+                    <div class="search_btn">
+                      <span class="icon"
+                        ><ion-icon name="search-outline"></ion-icon
+                      ></span>
+                    </div>
+                    <div class="close_btn">
+                      <span class="icon"
+                        ><ion-icon name="close-outline"></ion-icon
+                      ></span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="col">
+                <button class="cart-btn">
+                  <img
+                    id="iconpacks"
+                    src="./images/icons/shopping-bag.png"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasExample"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- End of search bar -->
+        </div>
+      </div>
+    </header>
+
+    <section class="top-header">
+      <div class="container">
+        <div class="row py-4 mx-auto">
+          <div class="col py-4">
+            <img class="kids-img" src="./images/kids-image.png" />
+          </div>
+          <div class="col align-self-center">
+            <h1>Shop for Kids</h1>
+            <h5>
+              Zombies reversus ab inferno, nam malum cerebro. De carne animata
+              corpora quaeritis. Summus sit, morbo vel maleficia? De Apocalypsi
+              undead dictum mauris.
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-display">
+      <div class="container">
+        <div class="row" id="data-output"></div>
+      </div>
+    </section>
+
+    <!-- Shopping Cart Offcanvas -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+          Shopping Cart
+        </h5>
+        <div id="shopCart"></div>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <hr class="solid" />
+          <h5 class="text-center font-italic">No items added.</h5>
+          <table></table>
+          <hr class="solid" />
+          <button class="btn btn-warning w-100">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of Shopping Cart Offcanvas -->
+
+    <!-- search bar js-->
+    <script type="text/javascript" src="./js/scripts.js"></script>
+
+    <!-- mock data js-->
+    <script type="text/javascript" src="./js/mock_data_kids.js"></script>
+  </body>
+</html>

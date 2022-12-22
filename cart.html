@@ -1,0 +1,45 @@
+<table class="table">
+  <thead>
+    <tr class="text-center">
+      <th>Product</th>
+      <th>Quantity</th>
+      <th class="del-col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>
+        <div class="row">
+          <div class="col">${product.image}</div>
+          <div class="col">
+            <div class="row">${product.name}</div>
+            <div class="row">${product.price}</div>
+          </div>
+        </div>
+      </th>
+      <th>
+        <div class="input-group mb-3" style="width: 100px">
+          <div class="input-group-prepend">
+            <button class="input-group-text minus-btn">-</button>
+          </div>
+          <input
+            type="text"
+            class="qty-input form-control | text-center bg-white"
+            aria-label="Quantity"
+            value="1"
+            disabled
+            aria-disabled="true"
+          />
+          <div class="input-group-append">
+            <button class="input-group-text plus-btn">+</button>
+          </div>
+        </div>
+      </th>
+      <th>
+        <button class="del-btn">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </th>
+    </tr>
+  </tbody>
+</table>
