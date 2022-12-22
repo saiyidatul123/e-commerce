@@ -6,10 +6,10 @@ To start,
 
 ```
 <?php
-  $servername = [YOUR_SERVERNAME];
-  $username = [YOUR_USERNAME];
-  $password = [YOUR_PASSWORD];
-  $database = [YOUR_DATABASE];
+  $servername = "[YOUR_SERVERNAME]";
+  $username = "[YOUR_USERNAME]";
+  $password = "[YOUR_PASSWORD]";
+  $database = "[YOUR_DATABASE]";
   
   // CREATE CONNECTION
   $connection = new mysqli($servername, $username, $password, $database);
