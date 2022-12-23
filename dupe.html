@@ -144,7 +144,7 @@
             <div class="col">
               <div id="frontpage" class="row">
                 <div class="typing">
-                  <div class="typing-effect">Timeless and iconic</div>
+                  <div class="typing-effect">Durable and iconic</div>
                 </div>
                 <div class="row mt-4 mb-3">
                   <h1 id="shopTitle">Lorem ipsum.</h1>
@@ -509,7 +509,9 @@
     <!-- <script type="text/javascript" src="./js/displayProduct.js"></script> -->
     <script>
       $(document).on("ready", function () {
-        $.ajax({
+
+        var showProduct = () => {
+          $.ajax({
           url: "http://localhost/phptutorial/E-commerce/api/showProduct.php",
           type: "GET",
           success: function (data) {
@@ -517,12 +519,13 @@
             var result = json.result;
             var html_cards = ``;
             var html_modals = ``;
-            let number = 1;
-            let uk6 = 1;
-            let uk7 = 2;
-            let uk8 = 3;
-            let uk9 = 4;
-            let uk10 = 5;
+            let modal_number = 1;
+            let cartBtn_number = 1;
+            let uk_size_6 = 1;
+            let uk_size_7 = 2;
+            let uk_size_8 = 3;
+            let uk_size_9 = 4;
+            let uk_size_10 = 5;
 
             for (let i = 0; i < result.length; i++) {
               var product_id = result[i].id;
@@ -548,7 +551,7 @@
 
                         <div
                         class="modal fade modal-lg"
-                        id="modal${number}"
+                        id="modal${modal_number}"
                         tabindex="-1"
                         aria-labelledby="exampleModalLabel"
                         aria-hidden="true"
@@ -593,13 +596,13 @@
                                     type="radio"
                                     class="btn-check"
                                     name="btnradio"
-                                    id="btnradio${uk6}"
+                                    id="btnradio${uk_size_6}"
                                     autocomplete="off"
                                     value="UK6"
                                   />
                                   <label
                                     class="btn btn-outline-dark"
-                                    for="btnradio${uk6}"
+                                    for="btnradio${uk_size_6}"
                                     >UK 6</label
                                   >
     
@@ -607,13 +610,13 @@
                                     type="radio"
                                     class="btn-check"
                                     name="btnradio"
-                                    id="btnradio${uk7}"
+                                    id="btnradio${uk_size_7}"
                                     autocomplete="off"
                                     value="UK7"
                                   />
                                   <label
                                     class="btn btn-outline-dark"
-                                    for="btnradio${uk7}"
+                                    for="btnradio${uk_size_7}"
                                     >UK 7</label
                                   >
     
@@ -621,13 +624,13 @@
                                     type="radio"
                                     class="btn-check"
                                     name="btnradio"
-                                    id="btnradio${uk8}"
+                                    id="btnradio${uk_size_8}"
                                     autocomplete="off"
                                     value="UK8"
                                   />
                                   <label
                                     class="btn btn-outline-dark"
-                                    for="btnradio${uk8}"
+                                    for="btnradio${uk_size_8}"
                                     >UK 8</label
                                   >
     
@@ -635,13 +638,13 @@
                                     type="radio"
                                     class="btn-check"
                                     name="btnradio"
-                                    id="btnradio${uk9}"
+                                    id="btnradio${uk_size_9}"
                                     autocomplete="off"
                                     value="UK9"
                                   />
                                   <label
                                     class="btn btn-outline-dark"
-                                    for="btnradio${uk9}"
+                                    for="btnradio${uk_size_9}"
                                     >UK 9</label
                                   >
     
@@ -649,13 +652,13 @@
                                     type="radio"
                                     class="btn-check"
                                     name="btnradio"
-                                    id="btnradio${uk10}"
+                                    id="btnradio${uk_size_10}"
                                     autocomplete="off"
                                     value="UK10"
                                   />
                                   <label
                                     class="btn btn-outline-dark"
-                                    for="btnradio${uk10}"
+                                    for="btnradio${uk_size_10}"
                                     >UK 10</label
                                   >
                                 </div>
@@ -665,7 +668,7 @@
                                 type="submit"
                                 class="btn btn-block btn-warning"
                                 name="addCart"
-                                id="addCartBtn${number}"
+                                id="addCartBtn${cartBtn_number}"
                                 value="${product_id}"
                               >
                                 ADD TO CART
@@ -691,7 +694,7 @@
         <script>
 
           <!-- Add to Cart js -->
-          $("#addCartBtn${number}").click(function (e) {
+          $("#addCartBtn${cartBtn_number}").click(function (e) {
             e.preventDefault();
             
             var product_size = $('input[name="btnradio"]:checked').val();
@@ -725,21 +728,22 @@
         </\script>
 
                     `;
-              number++;
-              uk6 += 5;
-              uk7 += 5;
-              uk8 += 5;
-              uk9 += 5;
-              uk10 += 5;
+              modal_number++;
+              cartBtn_number++;
+              uk_size_6 += 5;
+              uk_size_7 += 5;
+              uk_size_8 += 5;
+              uk_size_9 += 5;
+              uk_size_10 += 5;
             }
             $("#displayProduct").html(html_cards);
             $("#displayModal").html(html_modals);
-
-            number++;
           },
         });
-
-        $.ajax({
+        }
+        
+        var showCart = () => {
+          $.ajax({
           url: "http://localhost/phptutorial/E-commerce/api/showCart.php",
           type: "GET",
           success: function (data) {
@@ -849,6 +853,8 @@
             $("#shopping-cart").html(html_cart);
           },
         });
+        }
+        
       });
     </script>
 
