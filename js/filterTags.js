@@ -1,0 +1,54 @@
+var html_trending = ``;
+var html_bestsellers = ``;
+
+html_trending = `
+<div class="row">
+<div class="col-xl-3 py-4">
+  <div class="card shadow-lg">
+    <img src="./images/enzo.png" class="d-flex w-100 shadow-sm" />
+    <ul class="px-0 py-2">
+      <li>
+        <a data-bs-toggle="modal" data-bs-target="#modal${number}" href="#"
+          >ENZO SPRINT</a
+        >
+      </li>
+      <li>RM 239</li>
+    </ul>
+  </div>
+</div>
+<div class="col-xl-3 py-4">
+  <div class="card shadow-lg">
+    <img src="./images/slipstream-suede.png" class="d-flex w-100 shadow-sm" />
+    <ul class="px-0 py-2">
+      <li>
+        <a data-bs-toggle="modal" data-bs-target="#modal${number}" href="#"
+          >SLIPSTREAM SUEDE</a
+        >
+      </li>
+      <li>RM 459</li>
+    </ul>
+  </div>
+</div>
+<div class="col-xl-3 py-4">
+  <div class="card shadow-lg">
+    <img src="./images/jordan-courtside.jpg" class="d-flex w-100 shadow-sm" />
+    <ul class="px-0 py-2">
+      <li>
+        <a data-bs-toggle="modal" data-bs-target="#modal${number}" href="#"
+          >JORDAN COURTSIDE</a
+        >
+      </li>
+      <li>RM 449</li>
+    </ul>
+  </div>
+</div>
+</div>
+`
+
+html_bestsellers = `
+<div class="text-left"><h2>No items at the moment.</h2></div>
+`
+
+$(".trending").click(function (){
+    $(".trending_product").show();
+})

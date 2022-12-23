@@ -530,7 +530,7 @@
               var product_name = result[i].name;
               var product_price = result[i].price;
               var product_image = result[i].image;
-
+              
               html_cards += `
                         <div class="col-xl-3 py-4">
                           <div class="card shadow-lg">
@@ -545,6 +545,7 @@
                           </div>
                         </div>
                         `;
+
               html_modals += `
 
                         <div
@@ -579,115 +580,104 @@
                                         <p
                                         class="font-size-40 font-weight-bold text-black mt-4"
                                         >
-                                ${product_name}
-                              </p>
-                              <p>RM${product_price}</p>
-                              <hr class="solid" />
-                              <div>
-                                <p>Choose UK sizes</p>
-                                <div
-                                  class="btn-group mb-4 size-data"
-                                  role="group"
-                                  aria-label="Choose shoe size"
-                                >
-                                  <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio${uk_size_6}"
-                                    autocomplete="off"
-                                    value="UK6"
-                                  />
-                                  <label
-                                    class="btn btn-outline-dark"
-                                    for="btnradio${uk_size_6}"
-                                    >UK 6</label
-                                  >
-    
-                                  <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio${uk_size_7}"
-                                    autocomplete="off"
-                                    value="UK7"
-                                  />
-                                  <label
-                                    class="btn btn-outline-dark"
-                                    for="btnradio${uk_size_7}"
-                                    >UK 7</label
-                                  >
-    
-                                  <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio${uk_size_8}"
-                                    autocomplete="off"
-                                    value="UK8"
-                                  />
-                                  <label
-                                    class="btn btn-outline-dark"
-                                    for="btnradio${uk_size_8}"
-                                    >UK 8</label
-                                  >
-    
-                                  <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio${uk_size_9}"
-                                    autocomplete="off"
-                                    value="UK9"
-                                  />
-                                  <label
-                                    class="btn btn-outline-dark"
-                                    for="btnradio${uk_size_9}"
-                                    >UK 9</label
-                                  >
-    
-                                  <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio${uk_size_10}"
-                                    autocomplete="off"
-                                    value="UK10"
-                                  />
-                                  <label
-                                    class="btn btn-outline-dark"
-                                    for="btnradio${uk_size_10}"
-                                    >UK 10</label
-                                  >
+                                        ${product_name}
+                                        </p>
+                                        <p>RM${product_price}</p>
+                                        <hr class="solid" />
+                                        <div>
+                                        <p>Choose UK sizes</p>
+                                        <div
+                                        class="btn-group mb-4 size-data"
+                                        role="group"
+                                        aria-label="Choose shoe size"
+                                        >
+                                        <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio${uk_size_6}"
+                                        autocomplete="off"
+                                        value="UK6"
+                                        />
+                                        <label
+                                        class="btn btn-outline-dark"
+                                        for="btnradio${uk_size_6}"
+                                        >UK 6</label>
+                                        <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio${uk_size_7}"
+                                        autocomplete="off"
+                                        value="UK7"
+                                        />
+                                        <label
+                                        class="btn btn-outline-dark"
+                                        for="btnradio${uk_size_7}"
+                                        >UK 7</label>
+                                        <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio${uk_size_8}"
+                                        autocomplete="off"
+                                        value="UK8"
+                                        />
+                                        <label
+                                        class="btn btn-outline-dark"
+                                        for="btnradio${uk_size_8}"
+                                        >UK 8</label>
+                                        <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio${uk_size_9}"
+                                        autocomplete="off"
+                                        value="UK9"
+                                        />
+                                        <label
+                                        class="btn btn-outline-dark"
+                                        for="btnradio${uk_size_9}"
+                                        >UK 9</label>
+                                        <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio${uk_size_10}"
+                                        autocomplete="off"
+                                        value="UK10"/>
+                                        <label
+                                        class="btn btn-outline-dark"
+                                        for="btnradio${uk_size_10}"
+                                        >UK 10</label
+                                        >
+                                      </div>
+                                    </div>
+                                    <button
+                                    type="submit"
+                                    class="btn btn-block btn-warning"
+                                    name="addCart"
+                                    id="addCartBtn${cartBtn_number}"
+                                    value="${product_id}">
+                                    ADD TO CART
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
-
-                              <button
-                                type="submit"
-                                class="btn btn-block btn-warning"
-                                name="addCart"
-                                id="addCartBtn${cartBtn_number}"
-                                value="${product_id}"
-                              >
-                                ADD TO CART
-                              </button>
                             </div>
+                          </div>
+                          <div class="modal-footer">
+                          <button
+                          type="button"
+                          class="btn btn-outline-dark"
+                          data-bs-dismiss="modal"
+                          >
+                          Close
+                          </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-outline-dark"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
         <script>
 

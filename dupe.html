@@ -138,6 +138,7 @@
 
   <body>
     <main>
+      <!-- Header section -->
       <section id="section1" class="cta">
         <div class="container">
           <div class="row">
@@ -182,6 +183,7 @@
         </div>
       </section>
 
+      <!-- Featured Product section -->
       <section id="featured-product">
         <div class="container">
           <div>
@@ -196,7 +198,7 @@
         </div>
       </section>
 
-      <!-- carousel -->
+      <!-- Carousel section -->
       <section id="carousel" class="py-4">
         <div class="container shadow-sm">
           <div class="row">
@@ -324,7 +326,6 @@
                 </div>
               </div>
             </div>
-            <!-- Image -->
             <div class="col-xl-4 px-0">
               <img src="./images/model2.jpg" alt="model2" class="h-100 w-100" />
             </div>
@@ -509,9 +510,7 @@
     <!-- <script type="text/javascript" src="./js/displayProduct.js"></script> -->
     <script>
       $(document).on("ready", function () {
-
-        var showProduct = () => {
-          $.ajax({
+        $.ajax({
           url: "http://localhost/phptutorial/E-commerce/api/showProduct.php",
           type: "GET",
           success: function (data) {
@@ -527,6 +526,34 @@
             let uk_size_9 = 4;
             let uk_size_10 = 5;
 
+            let index = 0;
+
+            while (index < result.length) {
+
+              const product = result[index];
+              const product_id = product.id;
+              const product_name = product.name;
+              const product_price = product.price;
+              const product_image = product.image;
+
+              html_cards += `
+                        <div class="col-xl-3 py-4">
+                          <div class="card shadow-lg">
+                          <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
+                            <ul class="px-0 py-2">
+                              <li>
+                                <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                >${product_name}</a>
+                              </li>
+                              <li>RM ${product_price}</li>
+                            </ul>
+                          </div>
+                        </div>
+                        `;
+
+
+            }
+
             for (let i = 0; i < result.length; i++) {
               var product_id = result[i].id;
               var product_name = result[i].name;
@@ -539,7 +566,7 @@
                           <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
                             <ul class="px-0 py-2">
                               <li>
-                                <a data-bs-toggle="modal" data-bs-target="#modal${number}" href="#"
+                                <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
                                 >${product_name}</a>
                               </li>
                               <li>RM ${product_price}</li>
@@ -547,6 +574,176 @@
                           </div>
                         </div>
                         `;
+
+              // function cardDisplay(
+              //   product_id,
+              //   product_name,
+              //   product_price,
+              //   product_image
+              // ) {
+              //   return `
+              //   <div class="col-xl-3 py-4">
+              //             <div class="card shadow-lg">
+              //             <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
+              //               <ul class="px-0 py-2">
+              //                 <li>
+              //                   <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+              //                   >${product_name}</a>
+              //                 </li>
+              //                 <li>RM ${product_price}</li>
+              //               </ul>
+              //             </div>
+              //           </div>
+              //   `;
+              // }
+
+              // function modalDisplay (modal_number, product_image, product_name, product_price, uk_size_6, uk_size_7, uk_size_8, uk_size_9, uk_size_10, cartBtn_number, product_id) {
+              //   return `
+
+              //   <div
+              //           class="modal fade modal-lg"
+              //           id="modal${modal_number}"
+              //           tabindex="-1"
+              //           aria-labelledby="exampleModalLabel"
+              //           aria-hidden="true"
+              //           >
+              //             <div class="modal-dialog modal-dialog-centered">
+              //               <div class="modal-content">
+              //                 <div class="modal-header">
+              //                   <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+              //                   <button
+              //                   type="button"
+              //                   class="btn-close"
+              //                   data-bs-dismiss="modal"
+              //                   aria-label="Close"
+              //                   ></button>
+              //                 </div>
+              //                 <div class="modal-body">
+              //                   <div id="addCart">
+              //                     <div class="row">
+              //                       <div class="col-lg-6">
+              //                         <img
+              //                         src="./${product_image}"
+              //                         class="w-100 h-100 min-height-50 min-width-50"
+              //                         />
+              //                       </div>
+              //                       <div class="col-lg-6 px-4 py-8 px-8">
+              //                         <div class="top-50">
+              //                           <p
+              //                           class="font-size-40 font-weight-bold text-black mt-4"
+              //                           >
+              //                   ${product_name}
+              //                 </p>
+              //                 <p>RM${product_price}</p>
+              //                 <hr class="solid" />
+              //                 <div>
+              //                   <p>Choose UK sizes</p>
+              //                   <div
+              //                     class="btn-group mb-4 size-data"
+              //                     role="group"
+              //                     aria-label="Choose shoe size"
+              //                   >
+              //                     <input
+              //                       type="radio"
+              //                       class="btn-check"
+              //                       name="btnradio"
+              //                       id="btnradio${uk_size_6}"
+              //                       autocomplete="off"
+              //                       value="UK6"
+              //                     />
+              //                     <label
+              //                       class="btn btn-outline-dark"
+              //                       for="btnradio${uk_size_6}"
+              //                       >UK 6</label
+              //                     >
+    
+              //                     <input
+              //                       type="radio"
+              //                       class="btn-check"
+              //                       name="btnradio"
+              //                       id="btnradio${uk_size_7}"
+              //                       autocomplete="off"
+              //                       value="UK7"
+              //                     />
+              //                     <label
+              //                       class="btn btn-outline-dark"
+              //                       for="btnradio${uk_size_7}"
+              //                       >UK 7</label
+              //                     >
+    
+              //                     <input
+              //                       type="radio"
+              //                       class="btn-check"
+              //                       name="btnradio"
+              //                       id="btnradio${uk_size_8}"
+              //                       autocomplete="off"
+              //                       value="UK8"
+              //                     />
+              //                     <label
+              //                       class="btn btn-outline-dark"
+              //                       for="btnradio${uk_size_8}"
+              //                       >UK 8</label
+              //                     >
+    
+              //                     <input
+              //                       type="radio"
+              //                       class="btn-check"
+              //                       name="btnradio"
+              //                       id="btnradio${uk_size_9}"
+              //                       autocomplete="off"
+              //                       value="UK9"
+              //                     />
+              //                     <label
+              //                       class="btn btn-outline-dark"
+              //                       for="btnradio${uk_size_9}"
+              //                       >UK 9</label
+              //                     >
+    
+              //                     <input
+              //                       type="radio"
+              //                       class="btn-check"
+              //                       name="btnradio"
+              //                       id="btnradio${uk_size_10}"
+              //                       autocomplete="off"
+              //                       value="UK10"
+              //                     />
+              //                     <label
+              //                       class="btn btn-outline-dark"
+              //                       for="btnradio${uk_size_10}"
+              //                       >UK 10</label
+              //                     >
+              //                   </div>
+              //                 </div>
+
+              //                 <button
+              //                   type="submit"
+              //                   class="btn btn-block btn-warning"
+              //                   name="addCart"
+              //                   id="addCartBtn${cartBtn_number}"
+              //                   value="${product_id}"
+              //                 >
+              //                   ADD TO CART
+              //                 </button>
+              //               </div>
+              //             </div>
+              //           </div>
+              //         </div>
+              //       </div>
+              //       <div class="modal-footer">
+              //         <button
+              //           type="button"
+              //           class="btn btn-outline-dark"
+              //           data-bs-dismiss="modal"
+              //         >
+              //           Close
+              //         </button>
+              //       </div>
+              //     </div>
+              //   </div>
+              // </div>
+                
+              //   `
+              // }
               html_modals += `
 
                         <div
@@ -740,29 +937,28 @@
             $("#displayModal").html(html_modals);
           },
         });
-        }
-        
+
         var showCart = () => {
           $.ajax({
-          url: "http://localhost/phptutorial/E-commerce/api/showCart.php",
-          type: "GET",
-          success: function (data) {
-            var json = JSON.parse(data);
-            var result = json.result;
-            var html_cart = ``;
+            url: "http://localhost/phptutorial/E-commerce/api/showCart.php",
+            type: "GET",
+            success: function (data) {
+              var json = JSON.parse(data);
+              var result = json.result;
+              var html_cart = ``;
 
-            for (let i = 0; i < result.length; i++) {
-              var cart_id = result[i].cart_id;
-              var product_id = result[i].product_id;
-              var product_image = result[i].product_image;
-              var product_name = result[i].product_name;
-              var product_size = result[i].product_size;
-              var product_price = result[i].product_price;
-              var product_qty = result[i].product_qty;
-              var total = product_price * product_qty;
+              for (let i = 0; i < result.length; i++) {
+                var cart_id = result[i].cart_id;
+                var product_id = result[i].product_id;
+                var product_image = result[i].product_image;
+                var product_name = result[i].product_name;
+                var product_size = result[i].product_size;
+                var product_price = result[i].product_price;
+                var product_qty = result[i].product_qty;
+                var total = product_price * product_qty;
 
-              if (result.length === 0) {
-                html_cart += `
+                if (result.length === 0) {
+                  html_cart += `
 
                 <h5 class="text-center font-italic py-4">No items added.</h5>
               
@@ -773,8 +969,8 @@
                 <\/script>
                 
                 `;
-              } else {
-                html_cart += `
+                } else {
+                  html_cart += `
                   <tr>
                     <td>
                       <img
@@ -847,14 +1043,13 @@
             <\/script>
               
               `;
+                }
               }
-            }
 
-            $("#shopping-cart").html(html_cart);
-          },
-        });
-        }
-        
+              $("#shopping-cart").html(html_cart);
+            },
+          });
+        };
       });
     </script>
 
