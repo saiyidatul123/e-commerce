@@ -197,8 +197,8 @@
       </section>
 
       <!-- carousel -->
-      <section id="carousel" class="py-4 shadow-sm">
-        <div class="container py-4">
+      <section id="carousel" class="py-4">
+        <div class="container shadow-sm">
           <div class="row">
             <div class="col-xl-4 px-0">
               <img src="./images/model1.jpg" alt="model1" class="w-100 h-100" />
@@ -277,30 +277,23 @@
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <img
-                        src="./images/shoe1.jpg"
+                        src="./images/enzo.png"
                         class="d-block w-100"
                         alt="shoes1"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="./images/shoe2.jpg"
+                        src="./images/slipstream-suede.png"
                         class="d-block w-100"
                         alt="shoes2"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="./images/shoe3.jpg"
+                        src="./images/jordan-courtside.jpg"
                         class="d-block w-100"
                         alt="shoes3"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="./images/shoe4.jpg"
-                        class="d-block w-100"
-                        alt="shoes4"
                       />
                     </div>
                   </div>
@@ -515,8 +508,6 @@
     <script src="./jquery-migrate/dist/jquery-migrate.min.js"></script>
     <!-- <script type="text/javascript" src="./js/displayProduct.js"></script> -->
     <script>
-      
-
       $(document).on("ready", function () {
         $.ajax({
           url: "http://localhost/phptutorial/E-commerce/api/showProduct.php",
@@ -532,7 +523,7 @@
             let uk8 = 3;
             let uk9 = 4;
             let uk10 = 5;
-            
+
             for (let i = 0; i < result.length; i++) {
               var product_id = result[i].id;
               var product_name = result[i].name;
@@ -764,7 +755,7 @@
               var product_size = result[i].product_size;
               var product_price = result[i].product_price;
               var product_qty = result[i].product_qty;
-              var total = product_price*product_qty;
+              var total = product_price * product_qty;
 
               if (result.length === 0) {
                 html_cart += `
@@ -888,16 +879,16 @@
     <!-- Sweet Alert JS -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-          <!-- Scroll to Featured Product section -->
-          <script>
-            $("#shopnow").click(function () {
-              $("html, body").animate(
-                {
-                  scrollTop: $("#featured-product").offset().top,
-                },
-                1000
-              );
-            });
+    <!-- Scroll to Featured Product section -->
+    <script>
+      $("#shopnow").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: $("#featured-product").offset().top,
+          },
+          1000
+        );
+      });
     </script>
   </body>
 </html>
