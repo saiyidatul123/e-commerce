@@ -340,7 +340,7 @@
 
       <!-- Testing Product Display -->
       <section id="test">
-        <div class="container py-4" id="test-display">
+        <div class="container py-4">
           <nav class="filterTags">
             <ul class="filter-list">
               <li>
@@ -351,7 +351,7 @@
               </li>
             </ul>
           </nav>
-          <div id="test-display"></div>
+          <div id="test-display" class="row"></div>
         </div>
       </section>
 
@@ -1075,10 +1075,13 @@
 
     <!-- Load filter tags -->
     <script>
-      // $(function () {
-      //   $("#test-display").load("filterTags.html");
-      // });
 
+      // Load w/o click
+      $(function () {
+        $("#test-display").load("filterTags.html");
+      });
+
+      // F(x) to load onClick
       var loadFilterTags = () => {
         $("#test-display").load("filterTags.html");
       };
@@ -1092,7 +1095,7 @@
 
       var displayNewArr = () => {
         $.ajax({
-          url: "http://localhost/phptutorial/E-commerce/api/showProduct.php",
+          url: "http://localhost/phptutorial/E-commerce/api/showNewArrival.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);
@@ -1112,6 +1115,8 @@
               var product_name = result[i].name;
               var product_price = result[i].price;
               var product_image = result[i].image;
+              var new_arrival = result[i].new_arrival;
+              console.log(product_name, new_arrival);
 
               html_cards += `
                           <div class="col-xl-3 py-4">
@@ -1127,7 +1132,11 @@
                             </div>
                           </div>
                           `;
+
+                          $("#test-display").html(html_cards);
             }
+
+            // loadFilterTags();
           },
         });
       };
