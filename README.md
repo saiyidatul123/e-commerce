@@ -18,7 +18,7 @@ An e-commerce website focused on selling high-quality shoes for men, women, and 
 
 ### Database Prep
 
-1. Add connect.php file in the api folder
+1. Create connect.php file in the api folder
 2. Add the following code in the connect.php file
 
 ```
