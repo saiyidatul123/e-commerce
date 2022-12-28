@@ -15,3 +15,4 @@ To start,
   $connection = new mysqli($servername, $username, $password, $database);
 ?>
 ```
+3. Import the sql file from ``` sql\ecommerce.sql ``` to your database for it to work
