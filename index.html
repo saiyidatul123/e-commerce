@@ -886,6 +886,30 @@
       });
     </script>
 
+    <!-- Scroll to New Arrival section -->
+    <script>
+      $(".new_arr").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: $("#test-display").offset().top,
+          },
+          1000
+        );
+      });
+    </script>
+
+    <!-- Scroll to Bestsellers section -->
+    <script>
+      $(".bestseller").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: $("#test-display").offset().top,
+          },
+          1000
+        );
+      });
+    </script>
+
     <!-- Load filter tags -->
     <script>
 
@@ -948,8 +972,188 @@
                           </div>
                           `;
 
-                          $("#test-display").html(html_cards);
+              html_modals += `
+
+                          <div
+                          class="modal fade modal-lg"
+                          id="modal${modal_number}"
+                          tabindex="-1"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                          >
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                  <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                  ></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div id="addCart">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <img
+                                        src="./${product_image}"
+                                        class="w-100 h-100 min-height-50 min-width-50"
+                                        />
+                                      </div>
+                                      <div class="col-lg-6 px-4 py-8 px-8">
+                                        <div class="top-50">
+                                          <p
+                                          class="font-size-40 font-weight-bold text-black mt-4"
+                                          >
+                                          ${product_name}
+                                          </p>
+                                          <p>RM${product_price}</p>
+                                          <hr class="solid" />
+                                          <div>
+                                          <p>Choose UK sizes</p>
+                                          <div
+                                          class="btn-group mb-4 size-data"
+                                          role="group"
+                                          aria-label="Choose shoe size"
+                                          >
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_6}"
+                                          autocomplete="off"
+                                          value="UK6"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_6}"
+                                          >UK 6</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_7}"
+                                          autocomplete="off"
+                                          value="UK7"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_7}"
+                                          >UK 7</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_8}"
+                                          autocomplete="off"
+                                          value="UK8"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_8}"
+                                          >UK 8</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_9}"
+                                          autocomplete="off"
+                                          value="UK9"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_9}"
+                                          >UK 9</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_10}"
+                                          autocomplete="off"
+                                          value="UK10"/>
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_10}"
+                                          >UK 10</label
+                                          >
+                                        </div>
+                                      </div>
+                                      <button
+                                      type="submit"
+                                      class="btn btn-block btn-warning"
+                                      name="addCart"
+                                      id="addCartBtn${cartBtn_number}"
+                                      value="${product_id}">
+                                      ADD TO CART
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button
+                            type="button"
+                            class="btn btn-outline-dark"
+                            data-bs-dismiss="modal"
+                            >
+                            Close
+                            </button>
+                            </div>
+                          </div>
+                          </div>
+                          </div>
+
+                          <script>
+
+                          <!-- Add to Cart js -->
+                          $("#addCartBtn${cartBtn_number}").click(function (e) {
+                          e.preventDefault();
+
+                          var product_size = $('input[name="btnradio"]:checked').val();
+                          var product_id = $(this).val();
+                          var qty = 1;
+
+                          $.ajax({
+                          url: "http://localhost/phptutorial/E-commerce/api/addToCart.php",
+                          type: "POST",
+                          data: {
+                          "product_id": product_id,
+                          "product_qty" : qty,
+                          "product_size" : product_size
+                          }, 
+
+                          success: function (response)
+                          {
+                          if(response == 200) {
+                          $("#mytoast").toast({ delay: 5000 });
+                          $("#mytoast").toast("show");
+                          }
+                          else if(response==500) {
+                          $("#badtoast").toast({ delay: 5000 });
+                          $("#badtoast").toast("show");
+                          }
+                          }
+                          })
+
+                          });
+
+                          </\script>
+
+                          `;
+                          modal_number++;
+                          cartBtn_number++;
+                          uk_size_6 += 5;
+                          uk_size_7 += 5;
+                          uk_size_8 += 5;
+                          uk_size_9 += 5;
+                          uk_size_10 += 5;
+
+                          
             }
+            $("#test-display").html(html_cards);
+            $("#displayModal").html(html_modals);
 
             // loadFilterTags();
           },
@@ -999,8 +1203,186 @@
                           </div>
                           `;
 
-                          $("#test-display").html(html_cards);
+              html_modals += `
+
+                          <div
+                          class="modal fade modal-lg"
+                          id="modal${modal_number}"
+                          tabindex="-1"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                          >
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                  <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                  ></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div id="addCart">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <img
+                                        src="./${product_image}"
+                                        class="w-100 h-100 min-height-50 min-width-50"
+                                        />
+                                      </div>
+                                      <div class="col-lg-6 px-4 py-8 px-8">
+                                        <div class="top-50">
+                                          <p
+                                          class="font-size-40 font-weight-bold text-black mt-4"
+                                          >
+                                          ${product_name}
+                                          </p>
+                                          <p>RM${product_price}</p>
+                                          <hr class="solid" />
+                                          <div>
+                                          <p>Choose UK sizes</p>
+                                          <div
+                                          class="btn-group mb-4 size-data"
+                                          role="group"
+                                          aria-label="Choose shoe size"
+                                          >
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_6}"
+                                          autocomplete="off"
+                                          value="UK6"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_6}"
+                                          >UK 6</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_7}"
+                                          autocomplete="off"
+                                          value="UK7"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_7}"
+                                          >UK 7</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_8}"
+                                          autocomplete="off"
+                                          value="UK8"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_8}"
+                                          >UK 8</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_9}"
+                                          autocomplete="off"
+                                          value="UK9"
+                                          />
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_9}"
+                                          >UK 9</label>
+                                          <input
+                                          type="radio"
+                                          class="btn-check"
+                                          name="btnradio"
+                                          id="btnradio${uk_size_10}"
+                                          autocomplete="off"
+                                          value="UK10"/>
+                                          <label
+                                          class="btn btn-outline-dark"
+                                          for="btnradio${uk_size_10}"
+                                          >UK 10</label
+                                          >
+                                        </div>
+                                      </div>
+                                      <button
+                                      type="submit"
+                                      class="btn btn-block btn-warning"
+                                      name="addCart"
+                                      id="addCartBtn${cartBtn_number}"
+                                      value="${product_id}">
+                                      ADD TO CART
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button
+                            type="button"
+                            class="btn btn-outline-dark"
+                            data-bs-dismiss="modal"
+                            >
+                            Close
+                            </button>
+                            </div>
+                          </div>
+                          </div>
+                          </div>
+
+                          <script>
+
+                          <!-- Add to Cart js -->
+                          $("#addCartBtn${cartBtn_number}").click(function (e) {
+                          e.preventDefault();
+
+                          var product_size = $('input[name="btnradio"]:checked').val();
+                          var product_id = $(this).val();
+                          var qty = 1;
+
+                          $.ajax({
+                          url: "http://localhost/phptutorial/E-commerce/api/addToCart.php",
+                          type: "POST",
+                          data: {
+                          "product_id": product_id,
+                          "product_qty" : qty,
+                          "product_size" : product_size
+                          }, 
+
+                          success: function (response)
+                          {
+                          if(response == 200) {
+                          $("#mytoast").toast({ delay: 5000 });
+                          $("#mytoast").toast("show");
+                          }
+                          else if(response==500) {
+                          $("#badtoast").toast({ delay: 5000 });
+                          $("#badtoast").toast("show");
+                          }
+                          }
+                          })
+
+                          });
+
+                          </\script>
+
+                          `;
+                          modal_number++;
+                          cartBtn_number++;
+                          uk_size_6 += 5;
+                          uk_size_7 += 5;
+                          uk_size_8 += 5;
+                          uk_size_9 += 5;
+                          uk_size_10 += 5;
             }
+            $("#test-display").html(html_cards);
+            $("#displayModal").html(html_modals);
 
             // loadFilterTags();
           },
