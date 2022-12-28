@@ -934,7 +934,7 @@
       
       var displayNewArr = () => {
         $.ajax({
-          url: "http://localhost/phptutorial/E-commerce/api/showNewArrival.php",
+          url: "https://localhost/phptutorial/E-commerce/api/showNewArrival.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);
@@ -1116,7 +1116,7 @@
                           var qty = 1;
 
                           $.ajax({
-                          url: "http://localhost/phptutorial/E-commerce/api/addToCart.php",
+                          url: "https://localhost/phptutorial/E-commerce/api/addToCart.php",
                           type: "POST",
                           data: {
                           "product_id": product_id,
@@ -1167,7 +1167,7 @@
 
       var displayBestseller = () => {
         $.ajax({
-          url: "http://localhost/phptutorial/E-commerce/api/showBestseller.php",
+          url: "https://localhost/phptutorial/E-commerce/api/showBestseller.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);
@@ -1347,7 +1347,7 @@
                           var qty = 1;
 
                           $.ajax({
-                          url: "http://localhost/phptutorial/E-commerce/api/addToCart.php",
+                          url: "https://localhost/phptutorial/E-commerce/api/addToCart.php",
                           type: "POST",
                           data: {
                           "product_id": product_id,
