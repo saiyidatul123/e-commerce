@@ -335,7 +335,19 @@
 
       <!-- Testing Product Display -->
       <section id="test">
-        <div class="container py-4" id="test-display"></div>
+        <div class="container py-4" >
+          <nav class="filterTags">
+            <ul class="filter-list">
+              <li>
+                <h2><a href="#" class="new_arr">New Arrivals</a></h2>
+              </li>
+              <li>
+                <h2><a href="#" class="bestseller">Bestsellers</a></h2>
+              </li>
+            </ul>
+          </nav>
+          <div id="test-display" class="row"></div>
+        </div>
       </section>
 
       <!-- Shopping Cart Offcanvas -->
@@ -510,7 +522,7 @@
     <script>
       $(document).on("ready", function () {
         $.ajax({
-          url: "http://localhost/phptutorial/E-commerce/api/showProduct.php",
+          url: "http://localhost/phptutorial/E-commerce/api/showFeatured.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);

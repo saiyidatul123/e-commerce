@@ -14,7 +14,7 @@ include 'connect.php';
 
 
 // Read data of product table
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product WHERE featured=1";
 $result = $connection->query($sql);
 
 

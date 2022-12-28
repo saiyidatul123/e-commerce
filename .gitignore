@@ -1,2 +1,5 @@
 # database configuration
 api/connect.php
+
+# server config
+.vscode
