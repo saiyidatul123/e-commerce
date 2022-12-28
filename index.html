@@ -861,13 +861,6 @@
     });
     </script>  -->
 
-    <!-- Load filter tags -->
-    <script>
-      $(function () {
-        $("#test-display").load("filterTags.html");
-      });
-    </script>
-
     <!-- Load Shopping Cart (addToCart.js didn't execute with load?) -->
     <!-- <script>
       $(function () {
@@ -891,6 +884,128 @@
           1000
         );
       });
+    </script>
+
+    <!-- Load filter tags -->
+    <script>
+
+      // Load w/o click
+      $(function () {
+        $("#test-display").load("filterTags.html");
+      });
+
+      // F(x) to load onClick
+      var loadFilterTags = () => {
+        $("#test-display").load("filterTags.html");
+      };
+    </script>
+
+    <!-- Trigger filter tags -->
+    <script>
+
+      // Display New Arrivals
+      $(".new_arr").click(() => {
+        displayNewArr();
+      });
+      
+      var displayNewArr = () => {
+        $.ajax({
+          url: "http://localhost/phptutorial/E-commerce/api/showNewArrival.php",
+          type: "GET",
+          success: function (data) {
+            var json = JSON.parse(data);
+            var result = json.result;
+            var html_cards = ``;
+            var html_modals = ``;
+            let modal_number = 1;
+            let cartBtn_number = 1;
+            let uk_size_6 = 1;
+            let uk_size_7 = 2;
+            let uk_size_8 = 3;
+            let uk_size_9 = 4;
+            let uk_size_10 = 5;
+
+            for (let i = 0; i < result.length; i++) {
+              var product_id = result[i].id;
+              var product_name = result[i].name;
+              var product_price = result[i].price;
+              var product_image = result[i].image;
+              var new_arrival = result[i].new_arrival;
+              console.log(product_name, new_arrival);
+
+              html_cards += `
+                          <div class="col-xl-3 py-4">
+                            <div class="card shadow-lg">
+                            <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
+                              <ul class="px-0 py-2">
+                                <li>
+                                  <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                  >${product_name}</a>
+                                </li>
+                                <li>RM ${product_price}</li>
+                              </ul>
+                            </div>
+                          </div>
+                          `;
+
+                          $("#test-display").html(html_cards);
+            }
+
+            // loadFilterTags();
+          },
+        });
+      };
+
+      // Display Bestsellers
+      $(".bestseller").click(() => {
+        displayBestseller();
+      });
+
+      var displayBestseller = () => {
+        $.ajax({
+          url: "http://localhost/phptutorial/E-commerce/api/showBestseller.php",
+          type: "GET",
+          success: function (data) {
+            var json = JSON.parse(data);
+            var result = json.result;
+            var html_cards = ``;
+            var html_modals = ``;
+            let modal_number = 1;
+            let cartBtn_number = 1;
+            let uk_size_6 = 1;
+            let uk_size_7 = 2;
+            let uk_size_8 = 3;
+            let uk_size_9 = 4;
+            let uk_size_10 = 5;
+
+            for (let i = 0; i < result.length; i++) {
+              var product_id = result[i].id;
+              var product_name = result[i].name;
+              var product_price = result[i].price;
+              var product_image = result[i].image;
+
+              html_cards += `
+                          <div class="col-xl-3 py-4">
+                            <div class="card shadow-lg">
+                            <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
+                              <ul class="px-0 py-2">
+                                <li>
+                                  <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                  >${product_name}</a>
+                                </li>
+                                <li>RM ${product_price}</li>
+                              </ul>
+                            </div>
+                          </div>
+                          `;
+
+                          $("#test-display").html(html_cards);
+            }
+
+            // loadFilterTags();
+          },
+        });
+      };
     </script>
   </body>
 </html>
