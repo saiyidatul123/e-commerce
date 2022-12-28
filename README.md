@@ -6,7 +6,7 @@ An e-commerce website focused on selling high-quality shoes for men, women, and 
 ### Project Dev Objectives
 
 - Learn DOM manipulation
-- Learn to build backend with PHP and MariaDB
+- Learn to build backend with PHP and MySQL
 - Learn to develop AJAX based application with jQuery
 
 ### Current Features
@@ -33,3 +33,12 @@ An e-commerce website focused on selling high-quality shoes for men, women, and 
 ?>
 ```
 3. Import the sql file from ``` sql\ecommerce.sql ``` to your database for it to work
+
+
+## Technology
+- HTML
+- JavaScript
+- CSS
+- Bootstrap
+- PHP
+- MySQL
