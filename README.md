@@ -1,6 +1,23 @@
-# e-commerce
+# E-commerce
 
-To start,
+## Project Description
+An e-commerce website focused on selling high-quality shoes for men, women, and children which offers a seamless shopping experience, with easy navigation and a user-friendly website
+
+### Project Dev Objectives
+
+- Learn DOM manipulation
+- Learn to build backend with PHP and MariaDB
+- Learn to develop AJAX based application with jQuery
+
+### Current Features
+- Filter products by category
+- Shopping cart using Offcanvas
+- Alert notification with Toast
+
+## Setup
+
+### Database Prep
+
 1. Add connect.php file in the api folder
 2. Add the following code in the connect.php file
 
