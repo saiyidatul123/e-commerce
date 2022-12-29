@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2022 at 04:30 AM
+-- Generation Time: Dec 29, 2022 at 07:07 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,7 +42,8 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `product_id`, `product_qty`, `product_size`, `created_at`) VALUES
 (39, 4, 1, 'UK6', '2022-12-21 06:46:40'),
 (40, 1, 1, 'UK7', '2022-12-21 06:48:31'),
-(41, 3, 1, 'UK8', '2022-12-21 06:51:25');
+(46, 2, 1, 'UK10', '2022-12-28 08:50:35'),
+(47, 7, 1, 'UK9', '2022-12-28 09:18:34');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,10 @@ INSERT INTO `product` (`id`, `name`, `price`, `image`, `new_arrival`, `bestselle
 (1, 'SAN HIGHLIGHT', 269, '/images/shoe1.jpg', 1, 0, 1),
 (2, 'SCARLET WHITE', 199, '/images/shoe2.jpg', 0, 1, 1),
 (3, 'CONFETTI X', 350, '/images/shoe3.jpg', 1, 0, 1),
-(4, 'ROSE TAINTED', 499, '/images/shoe4.jpg', 0, 1, 1);
+(4, 'ROSE TAINTED', 499, '/images/shoe4.jpg', 0, 1, 1),
+(5, 'ENZO SPRINT', 239, '/images/enzo.png', 1, 0, 0),
+(6, 'SLIPSTREAM SUEDE', 459, '/images/slipstream-suede.png', 1, 0, 0),
+(7, 'JORDAN COURTSIDE', 449, '/images/jordan-courtside.jpg', 0, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -94,13 +98,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
