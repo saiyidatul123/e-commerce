@@ -351,6 +351,7 @@
             </ul>
           </nav>
           <div id="test-display" class="row"></div>
+          <div class="row" id="displayModal"></div>
         </div>
       </section>
 
@@ -1060,12 +1061,31 @@
     <!-- Sweet Alert JS -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- Scroll to Featured Product section -->
+    
     <script>
+      // Scroll to Featured Product section
       $("#shopnow").click(function () {
         $("html, body").animate(
           {
             scrollTop: $("#featured-product").offset().top,
+          },
+          1000
+        );
+      });
+
+       // Scroll to Filter Tags section
+      $(".new_arr").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: $("#test-display").offset().top,
+          },
+          1000
+        );
+      });
+      $(".bestseller").click(function () {
+        $("html, body").animate(
+          {
+            scrollTop: $("#test-display").offset().top,
           },
           1000
         );
@@ -1076,7 +1096,7 @@
     <script>
       // Load w/o click
       $(function () {
-        $("#test-display").load("filterTags.html");
+        $("#test-display").load(displayNewArr());
       });
 
       // F(x) to load onClick

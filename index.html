@@ -915,7 +915,7 @@
 
       // Load w/o click
       $(function () {
-        $("#test-display").load("filterTags.html");
+        $("#test-display").load(displayNewArr());
       });
 
       // F(x) to load onClick
@@ -934,7 +934,7 @@
       
       var displayNewArr = () => {
         $.ajax({
-          url: "https://localhost/phptutorial/E-commerce/api/showNewArrival.php",
+          url: "http://localhost/phptutorial/E-commerce/api/showNewArrival.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);
@@ -954,8 +954,6 @@
               var product_name = result[i].name;
               var product_price = result[i].price;
               var product_image = result[i].image;
-              var new_arrival = result[i].new_arrival;
-              console.log(product_name, new_arrival);
 
               html_cards += `
                           <div class="col-xl-3 py-4">
@@ -1116,7 +1114,7 @@
                           var qty = 1;
 
                           $.ajax({
-                          url: "https://localhost/phptutorial/E-commerce/api/addToCart.php",
+                          url: "http://localhost/phptutorial/E-commerce/api/addToCart.php",
                           type: "POST",
                           data: {
                           "product_id": product_id,
@@ -1150,10 +1148,10 @@
                           uk_size_9 += 5;
                           uk_size_10 += 5;
 
-                          
-            }
             $("#test-display").html(html_cards);
-            $("#displayModal").html(html_modals);
+            $("#displayModal").html(html_modals);             
+            }
+            
 
             // loadFilterTags();
           },
@@ -1167,7 +1165,7 @@
 
       var displayBestseller = () => {
         $.ajax({
-          url: "https://localhost/phptutorial/E-commerce/api/showBestseller.php",
+          url: "http://localhost/phptutorial/E-commerce/api/showBestseller.php",
           type: "GET",
           success: function (data) {
             var json = JSON.parse(data);
@@ -1373,16 +1371,17 @@
                           </\script>
 
                           `;
-                          modal_number++;
-                          cartBtn_number++;
-                          uk_size_6 += 5;
-                          uk_size_7 += 5;
-                          uk_size_8 += 5;
-                          uk_size_9 += 5;
-                          uk_size_10 += 5;
-            }
+            modal_number++;
+            cartBtn_number++;
+            uk_size_6 += 5;
+            uk_size_7 += 5;
+            uk_size_8 += 5;
+            uk_size_9 += 5;
+            uk_size_10 += 5;
+                          
             $("#test-display").html(html_cards);
             $("#displayModal").html(html_modals);
+            }
 
             // loadFilterTags();
           },
