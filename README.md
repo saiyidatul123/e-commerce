@@ -1,7 +1,9 @@
-# E-commerce
+# E-commerce (Ongoing)
 
 ## Project Description
 An e-commerce website focused on selling high-quality shoes for men, women, and children which offers a seamless shopping experience, with easy navigation and a user-friendly website
+
+[View live site](https://gv-sports.000webhostapp.com/)
 
 ### Project Dev Objectives
 
