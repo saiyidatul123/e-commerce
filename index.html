@@ -188,7 +188,7 @@
             <h1 class="py-4" id="featuredProduct">Featured Products</h1>
           </div>
           <div class="row" id="displayProduct"></div>
-          <div class="row" id="displayModal"></div>
+          <div class="row" id="displayModalF"></div>
           <button class="more-btn">
             <span class="more-txt">More</span>
             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
@@ -347,6 +347,8 @@
             </ul>
           </nav>
           <div id="test-display" class="row"></div>
+          <div id="displayModalN"></div>
+          <div id="displayModalB"></div>
         </div>
       </section>
 
@@ -549,7 +551,7 @@
                           <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
                             <ul class="px-0 py-2">
                               <li>
-                                <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                <a data-bs-toggle="modal" data-bs-target="#modal${product_id}" href="#"
                                 >${product_name}</a>
                               </li>
                               <li>RM ${product_price}</li>
@@ -562,7 +564,7 @@
 
                         <div
                         class="modal fade modal-lg"
-                        id="modal${modal_number}"
+                        id="modal${product_id}"
                         tabindex="-1"
                         aria-labelledby="exampleModalLabel"
                         aria-hidden="true"
@@ -737,7 +739,7 @@
               uk_size_10 += 5;
             }
             $("#displayProduct").html(html_cards);
-            $("#displayModal").html(html_modals);
+            $("#displayModalF").html(html_modals);
           },
         });
 
@@ -956,7 +958,7 @@
                             <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
                               <ul class="px-0 py-2">
                                 <li>
-                                  <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                  <a data-bs-toggle="modal" data-bs-target="#modal${product_id}" href="#"
                                   >${product_name}</a>
                                 </li>
                                 <li>RM ${product_price}</li>
@@ -969,7 +971,7 @@
 
                           <div
                           class="modal fade modal-lg"
-                          id="modal${modal_number}"
+                          id="modal${product_id}"
                           tabindex="-1"
                           aria-labelledby="exampleModalLabel"
                           aria-hidden="true"
@@ -1144,7 +1146,7 @@
                           uk_size_10 += 5;
 
             $("#test-display").html(html_cards);
-            $("#displayModal").html(html_modals);             
+            $("#displayModalN").html(html_modals);             
             }
           },
         });
@@ -1184,7 +1186,7 @@
                             <img src="./${product_image}" class="d-flex w-100 shadow-sm" />
                               <ul class="px-0 py-2">
                                 <li>
-                                  <a data-bs-toggle="modal" data-bs-target="#modal${modal_number}" href="#"
+                                  <a data-bs-toggle="modal" data-bs-target="#modal${product_id}" href="#"
                                   >${product_name}</a>
                                 </li>
                                 <li>RM ${product_price}</li>
@@ -1197,7 +1199,7 @@
 
                           <div
                           class="modal fade modal-lg"
-                          id="modal${modal_number}"
+                          id="modal${product_id}"
                           tabindex="-1"
                           aria-labelledby="exampleModalLabel"
                           aria-hidden="true"
@@ -1372,7 +1374,7 @@
             uk_size_10 += 5;
                           
             $("#test-display").html(html_cards);
-            $("#displayModal").html(html_modals);
+            $("#displayModalB").html(html_modals);
             }
           },
         });
