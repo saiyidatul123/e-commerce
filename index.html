@@ -509,7 +509,7 @@
           </div>
           <hr class="solid" />
           <p class="cp | text-center">
-            Copyright © 2022 GV Sports All rights reserved
+            Copyright © <span id="year"></span> GV Sports All rights reserved
           </p>
         </section>
       </footer>
@@ -1374,6 +1374,12 @@
           },
         });
       };
+
+
+      // Copyright Year
+      const cdate = new Date().getFullYear();
+      document.getElementById("year").innerHTML = cdate;
+
     </script>
   </body>
 </html>
